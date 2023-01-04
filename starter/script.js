@@ -89,9 +89,23 @@ var upperCasedCharacters = [
 ];
 
 // Function to prompt user for password options
+// Ask how many characters do you want? Between 10 and 64
+// Ask what character types do you want? Lowercase, Uppercase, Numeric, Special characers
 function getPasswordOptions() {
-
+  var charNum = prompt("What length do you want for your password (min 10, max 64?");
+  if (charNum >= 10 && charNum <= 64) {
+  return charNum
+  }
+  else {
+  (prompt("Character needs to be a number between 10 and 64"))
 }
+// var lowercase = confirm("Lowercase?\nEither OK or No.");
+// var upperCase = = confirm("Lowercase?\nEither OK or No.");
+// var numer
+// var specialChar 
+}
+
+getPasswordOptions();
 
 // Function for getting a random element from an array
 function getRandom(arr) {
