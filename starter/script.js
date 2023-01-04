@@ -99,13 +99,17 @@ function getPasswordOptions() {
   else {
   (prompt("Character needs to be a number between 10 and 64"))
 }
-// var lowercase = confirm("Lowercase?\nEither OK or No.");
-// var upperCase = = confirm("Lowercase?\nEither OK or No.");
-// var numer
-// var specialChar 
 }
 
 getPasswordOptions();
+
+var lowercase = confirm("Do you want lowercase letters?\nEither OK or No.");
+var upperCase = confirm("Do you want uppercase letters?\nEither OK or No.");
+var numer = confirm("Do you want numbers?\nEither OK or No.");
+var specialChar = confirm("Do you want special characters?\nEither OK or No.");
+
+//if none selected, prompt that at least one needs to be selected, otherwise run code again
+
 
 // Function for getting a random element from an array
 function getRandom(arr) {
