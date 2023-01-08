@@ -111,7 +111,7 @@ function getPasswordOptions() {
     prompt("Character needs to be a number between 10 and 64");
   }
 
-  // prompt password options
+  // prompt password options for characters types
   do {
     var includeLowercase = confirm("Click Ok for lowercase");
     if (includeLowercase === true) {
@@ -138,15 +138,18 @@ function getPasswordOptions() {
   );
 // return values in an object
   return {
-    length: charNum,
-    lowerCase: includeLowercase,
-    upperCase: includeUpperCase,
-    numeric: includeNumber,
-    specialchar: includeSpecialChar,
+    'length': charNum,
+    'lowerCase': includeLowercase,
+    'upperCase': includeUpperCase,
+    'numeric': includeNumber,
+    'specialchar': includeSpecialChar,
   };
 }
 
+// var chosenOptions = getPasswordOptions();
 
+// let length = chosenOptions.length,
+//     lowerCase = names.lowerCase;
 
 
 // Function for getting a random element from an array
@@ -158,7 +161,8 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
-  getPasswordOptions();
+  let password = getPasswordOptions();
+  console.log(password.length);
   return "This is a secret password. Whee.";
 }
 
