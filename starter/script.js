@@ -102,14 +102,15 @@ var passwordoptions = [
 // Ask what character types do you want? Lowercase, Uppercase, Numeric, Special characers
 
 function getPasswordOptions() {
+  var condition = 0;
+  do {
   var charNum = prompt(
-    "What length do you want for your password (min 10, max 64?"
+    "What length do you want for your password (min 10, max 64?)"
   );
-  if (charNum >= 10 && charNum <= 64) {
-    console.log(charNum);
-  } else {
-    prompt("Character needs to be a number between 10 and 64");
-  }
+  if (charNum >= 10 && charNum <= 64){
+    condition = 1;
+  }}
+  while (condition != 1);
 
   // prompt password options for characters types
   do {
@@ -128,9 +129,9 @@ function getPasswordOptions() {
     var includeSpecialChar = confirm("Click Ok for special characters");
     if (includeSpecialChar === true) {
       console.log(includeSpecialChar);
-    }
+    }}
     //if none selected, prompt that at least one needs to be selected, otherwise run code again
-  } while (
+   while (
     includeLowercase === false &&
     includeUpperCase === false &&
     includeNumber === false &&
@@ -142,14 +143,19 @@ function getPasswordOptions() {
     'lowerCase': includeLowercase,
     'upperCase': includeUpperCase,
     'numeric': includeNumber,
-    'specialchar': includeSpecialChar,
+    'specialChar': includeSpecialChar,
   };
-}
+};
 
-// var chosenOptions = getPasswordOptions();
 
-// let length = chosenOptions.length,
-//     lowerCase = names.lowerCase;
+// Accessing returned values from array
+var chosenOptions = getPasswordOptions();
+var length = Number (chosenOptions.length);
+var choiceLower = chosenOptions.lowerCase;
+var choiceUpper = chosenOptions.upperCase;
+var choiceNumeric = chosenOptions.numeric;
+var choiceSpecial = chosenOptions.specialChar
+
 
 
 // Function for getting a random element from an array
