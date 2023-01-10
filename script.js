@@ -1,7 +1,3 @@
-
-// Function to prompt user for password options
-// Ask how many characters do you want? Between 10 and 64
-// Ask what character types do you want? Lowercase, Uppercase, Numeric, Special characers
 var specialCharacters = [
   "@",
   "%",
@@ -91,26 +87,24 @@ var upperCasedCharacters = [
   "Z",
 ];
 
-
-
+// Function to prompt user for password options
 function getPasswordOptions() {
   var validLength = false;
   var charNum = prompt(
     "What length do you want for your password (min 10, max 64?)"
-    );
-    if (charNum >= 10 && charNum <= 64) {
-      validLength = true;
-    }
-    if (!validLength) {
-      alert("You must select a number between 10 and 64")
-      return getPasswordOptions();
-    }
-    // prompt password options for characters types
-    // Array of special characters to be included in password
+  );
+  if (charNum >= 10 && charNum <= 64) {
+    validLength = true;
+  }
+  if (!validLength) {
+    alert("You must select a number between 10 and 64");
+    return getPasswordOptions();
+  }
+  // prompt password options for characters types
   var passwordOptions = [];
   var includeLowercase = confirm("Click Ok for lowercase");
   if (includeLowercase === true) {
-    //add the lowercase array to password options
+    //add the lowercase array to the new password options array
     passwordOptions = passwordOptions.concat(lowerCasedCharacters);
   }
   var includeUpperCase = confirm("Click Ok for uppercase");
@@ -125,24 +119,17 @@ function getPasswordOptions() {
   if (includeSpecialChar === true) {
     passwordOptions = passwordOptions.concat(specialCharacters);
   }
-  //if none selected, prompt that at least one needs to be selected, otherwise run code again
+  //if none selected (= the new array is empty), prompt that at least one needs to be selected, otherwise run code again
   if (passwordOptions.length === 0) {
-    alert("You must select at least one character type")
-    return getPasswordOptions()
+    alert("You must select at least one character type");
+    return getPasswordOptions();
   }
   // return values in an object
   return {
     passwordLength: charNum,
-    passwordBase: passwordOptions
+    passwordBase: passwordOptions,
   };
 }
-
-// Accessing returned values from array
-// var length = Number(chosenOptions.length);
-// var choiceLower = chosenOptions.lowerCase;
-// var choiceUpper = chosenOptions.upperCase;
-// var choiceNumeric = chosenOptions.numeric;
-// var choiceSpecial = chosenOptions.specialChar
 
 // Function for getting a random element from an array
 function getRandom(arr) {
@@ -150,21 +137,18 @@ function getRandom(arr) {
   var item = arr[randomNumber];
   return item;
 }
-// filter and create new array of chosen array
-// concatenate chosen arrays
-// use for loop and math random to pick items based on chosen number of characters
 
 // Function to generate password with user input
 function generatePassword() {
   let chosenOptions = getPasswordOptions();
-  var finalLength = chosenOptions.passwordLength
-  var finalArr = chosenOptions.passwordBase
-  var newPassword = ""
-  for (var i =0; i < finalLength; i++){
-      newPassword+= getRandom(finalArr)
-      console.log(newPassword)
+  var finalLength = chosenOptions.passwordLength;
+  var finalArr = chosenOptions.passwordBase;
+  var newPassword = "";
+  for (var i = 0; i < finalLength; i++) {
+    newPassword += getRandom(finalArr);
+    console.log(newPassword);
   }
-  return newPassword
+  return newPassword;
 }
 
 // Get references to the #generate element

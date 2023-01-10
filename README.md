@@ -15,8 +15,10 @@ when clicking on the Generate Password button, a series of prompts will be prese
 
 At least one of the character types must be selected.
 
+The programme then returns a password based on options chosen by the user.
 
-![password generator demo](./assets/05-javascript-challenge-demo.png)
+The deployed application can be found [here](https://helenesauve.github.io/Password-Generator/) and looks like the below screenshot:
+
+![password generator demo](./assets/screenshot.png)
 
 
-The deployed application can be found: 
